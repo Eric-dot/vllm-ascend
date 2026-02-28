@@ -50,7 +50,7 @@ env_variables: dict[str, Callable[[], Any]] = {
     # The version of the Ascend chip. It's used for package building.
     # If not set, we will query chip info through `npu-smi`.
     # Please make sure that the version is correct.
-    "SOC_VERSION": lambda: os.getenv("SOC_VERSION", None),
+    "SOC_VERSION": lambda: os.getenv("SOC_VERSION", "ascend910b1"),
     # If set, vllm-ascend will print verbose logs during compilation
     "VERBOSE": lambda: bool(int(os.getenv("VERBOSE", "0"))),
     # The home path for CANN toolkit. If not set, the default value is

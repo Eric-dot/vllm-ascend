@@ -257,7 +257,7 @@ def enable_custom_op():
         import vllm_ascend.meta_registration  # type: ignore  # noqa: F401
 
         # isort: on
-        _CUSTOM_OP_ENABLED = True
+        _CUSTOM_OP_ENABLED = False
     except ImportError:
         _CUSTOM_OP_ENABLED = False
         logger.warning("Warning: Failed to register custom ops, all custom ops will be disabled")

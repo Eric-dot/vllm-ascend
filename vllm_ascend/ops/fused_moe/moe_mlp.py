@@ -122,12 +122,7 @@ def quant_apply_mlp(
             )
             dispose_tensor(unquantized_hidden_states)
         else:
-            hidden_states, pertoken_scale = adaptor_cls.npu_dynamic_quant(
-                hidden_states=hidden_states,
-                dynamic_scale=dynamic_scale,
-                act_quant_type=act_quant_type,
-                use_mxfp_quant=True,
-            )
+            unquantized_hidden_states = hidden_states
 
         weight_prefetch_method = get_weight_prefetch_method()
         if weight_prefetch_method:
