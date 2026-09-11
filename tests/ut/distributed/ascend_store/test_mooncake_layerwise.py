@@ -167,6 +167,10 @@ class TestMooncakeWorkerSessionPreparation(unittest.TestCase):
         worker.kv_role = "kv_producer"
         worker.consumer_is_to_put = False
         worker.tp_rank = 0
+        worker.pp_rank = 0
+        worker.dcp_rank = 0
+        worker.dcp_size = 1
+        worker.mooncake_layerwise_namespace = ""
         worker.put_step = 1
         worker.block_size = 16
         worker.grouped_block_size = [16]
@@ -174,6 +178,7 @@ class TestMooncakeWorkerSessionPreparation(unittest.TestCase):
         worker.model_name = "model"
         worker.head_or_tp_rank = 0
         worker.backend_name = "mooncake"
+        worker.use_layerwise = True
         worker.use_block_key_layerwise = True
         worker.layerwise_offload = False
         worker.independent_layers = []

@@ -56,6 +56,7 @@ def make_config(kv_role="kv_producer", extra_config=None, block_size=16):
     config.parallel_config.decode_context_parallel_size = 1
     config.parallel_config.tensor_parallel_size = 1
     config.parallel_config.pipeline_parallel_size = 1
+    config.parallel_config.cp_kv_cache_interleave_size = 1
     config.parallel_config.rank = 0
     config.parallel_config.world_size = 1
     config.cache_config.block_size = block_size
@@ -65,6 +66,7 @@ def make_config(kv_role="kv_producer", extra_config=None, block_size=16):
     config.model_config.hf_text_config = MagicMock(spec=[])
     config.model_config.get_total_num_kv_heads.return_value = 1
     config.model_config.get_num_layers.return_value = 2
+    config.model_config.get_layers_start_end_indices.return_value = (0, 2)
     return config
 
 
